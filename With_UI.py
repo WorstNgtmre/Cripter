@@ -12,8 +12,9 @@ class EncryptPage(ctk.CTkFrame):
         self.key = ctk.CTkEntry(self, placeholder_text="Key")
         self.key.grid(row=1, column=0, padx=20, pady=20, sticky="ew")
 
-        self.output = ctk.CTkTextbox(self, height=100)
+        self.output = ctk.CTkTextbox(self, height=100, )
         self.output.grid(row=2, column=0, padx=20, pady=20, sticky="nsew")
+        self.output.configure(state="disabled")
 
         ctk.CTkButton(self, text="Encrypt", command=self.encrypt_callback).grid(
             row=3, column=0, padx=20, pady=20, sticky="ew"
@@ -39,6 +40,7 @@ class DecryptPage(ctk.CTkFrame):
 
         self.output = ctk.CTkTextbox(self, height=100)
         self.output.grid(row=2, column=0, padx=20, pady=20, sticky="nsew")
+        self.output.configure(state="disabled")
 
         ctk.CTkButton(self, text="Decrypt", command=self.decrypt_callback).grid(
             row=3, column=0, padx=20, pady=20, sticky="ew"
