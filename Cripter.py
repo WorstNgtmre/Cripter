@@ -28,7 +28,6 @@ def create_encrypted_alphabet(key: str) ->  list:
     #Returns the encrypted alphabet
     return encrypted_alphabet
 
-
 def encrypt(message: str, key:str) -> str:
     encrypted_message = ""
     encrypted_alphabet = create_encrypted_alphabet(key)
