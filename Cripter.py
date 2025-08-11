@@ -23,11 +23,8 @@ def create_encrypted_alphabet(key: str) ->  list:
     
     
     #Shifts the letters in the encrypted alphabet by the number of letters in the key
-    for letter in encrypted_alphabet:
-        index = encrypted_alphabet.index(letter)
-        if index >= len(encrypted_alphabet) - n_letters:
-            encrypted_alphabet.pop(index)
-            encrypted_alphabet.insert(index - len(encrypted_alphabet) + n_letters - 1, letter)
+    encrypted_alphabet = encrypted_alphabet[n_letters:] + encrypted_alphabet[:n_letters]
+
     #Returns the encrypted alphabet
     return encrypted_alphabet
 
