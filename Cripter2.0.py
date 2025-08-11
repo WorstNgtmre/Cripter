@@ -34,15 +34,15 @@ def decrypt(encrypted_message: str, key: str) -> str:
     decrypted_message = ""
 
     # Create a key that is as long as the encrypted message
-    if len(key) < len(message):
-        key = (key * (len(message) // len(key) + 1))[:len(message)]
+    if len(key) < len(encrypted_message):
+        key = (key * (len(encrypted_message) // len(key) + 1))[:len(encrypted_message)]
     else:
         key = key[:len(encrypted_message)]
 
     # Decrypt the message using the key
     for i in range(len(encrypted_message)):
         if encrypted_message[i].lower() in alphabet:
-            row = alphabet.index(key[i])
+            row = alphabet.index(key[i].lower())
             column = vigenere_square[row].index(encrypted_message[i].lower())
             decrypted_message += alphabet[column]
         else:
